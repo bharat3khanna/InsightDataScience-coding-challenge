@@ -133,7 +133,7 @@ if __name__ == '__main__':
     time_list = {}    # dictionary to store tweet id's as keys and tweet's created date as value for e.g. {714593712307838977: datetime.datetime(2016, 3, 28, 23, 23, 42)}
     hash_tags_list = {} # dictionary to store tweet id's as keys and hash tags as values for e.g. {714593712307838977: [u'Flink', u'Spark']}
     degree_out = open(tweets_write_path, "w") # file object to write degree to tweet output file
-    error_out = open('/home/bharat/tweet.err','w')
+    
 
     with open(tweets_file_path, 'r') as tweets_file: #file object to read tweets from tweets input file
 
@@ -183,9 +183,8 @@ if __name__ == '__main__':
 
 
             except Exception as e:
-                   print "Error while paring tweet, Error message :", e.message
-                   error_out.write(str(tweet))
-                   error_out.write("\n")
+                   print "Error while paring tweet, Error message :", e.message, "in tweet :\n", tweet
+                   
 
         # print "Final hash tags list :", hash_tags_list
         # print "big hash map :", big_hash_map
